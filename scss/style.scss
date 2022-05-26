@@ -1,0 +1,237 @@
+@import "elements/reset";
+@import "elements/variables";
+
+// map over items using @each
+
+$colors : (color1: red, color2: green, color3: blue);
+
+@each $key,
+$color in $colors {
+    .#{$color}-text {
+        color: $color
+    }
+
+    ;
+}
+
+// OR 
+
+// @each $color in red,
+// green,
+// blue {
+//     .#{$color}-text {
+//         color: $color
+//     }
+
+//     ;
+// }
+
+/* Instead of which (Sass text) */
+
+// .red-text {
+//     color: red
+// }
+
+// .green-text {
+//     color: green
+// }
+
+// .blue-text {
+//     color: blue
+// }
+
+
+// Mixin 
+@mixin para-style($size, $style) {
+    font-size: $size;
+    text-align: $style;
+    margin: 10px 0;
+}
+
+#about p {
+    @include para-style(24px, left)
+}
+
+#education p {
+    @include para-style(16px, justify)
+}
+
+//Extend
+
+.c-btn {
+    border: none;
+    padding: 15px 30px;
+    text-align: center;
+    font-size: 16px;
+    font-weight: 600;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 0.4s;
+}
+
+.custom-button {
+    @extend .c-btn;
+    background-color: rgb(180, 218, 251);
+
+    &:hover {
+        background-color: blue;
+        color: white;
+    }
+}
+
+.learn-more {
+    @extend .c-btn;
+    background-color: rgb(140, 251, 214);
+    text-decoration: none;
+
+    &:hover {
+        background-color: blue;
+        color: white;
+    }
+}
+
+// @if, @else if, @else
+
+@mixin setFontSize($value) {
+    @if $value ==small {
+        font-size: 12px;
+    }
+
+    @else if $value ==medium {
+        font-size: 16px;
+    }
+
+    @else if $value ==large {
+        font-size: 20px;
+    }
+
+    @else {
+        font-size: none;
+    }
+
+}
+
+// @for @while
+
+[class*="c-col-"] {
+    float: left;
+}
+
+$i: 1;
+
+@while $i < 13 {
+    .c-col-#{$i} {
+        width: 100% / 12 * $i;
+    }
+
+    $i: $i +1;
+}
+
+// OR 
+
+// @for $i from 1 through 12 {
+//     .c-col-#{$i} {
+//         width: 100% / 12 * $i;
+//     }
+// }
+
+
+/*  Instead of which (Sass text) */
+
+// .c-col-1 {
+//     width: 8.33%;
+// }
+
+// .c-col-2 {
+//     width: 16.66%;
+// }
+
+// .c-col-3 {
+//     width: 25%;
+// }
+
+// .c-col-4 {
+//     width: 33.33%;
+// }
+
+// .c-col-5 {
+//     width: 41.66%;
+// }
+
+// .c-col-6 {
+//     width: 50%;
+// }
+
+// .c-col-7 {
+//     width: 58.33%;
+// }
+
+// .col-8 {
+//     width: 66.66%;
+// }
+
+// .col-9 {
+//     width: 75%;
+// }
+
+// .col-10 {
+//     width: 83.33%;
+// }
+
+// .col-11 {
+//     width: 91.66%;
+// }
+
+// .col-12 {
+//     width: 100%;
+// }
+
+.row::after {
+    clear: both;
+    content: "";
+    display: table;
+}
+
+
+header {
+    background: $header-bgcolor;
+}
+
+// nav style (nesting CSS rules)
+
+nav {
+    margin: 15px;
+
+    ul {
+        list-style-type: none;
+
+        li {
+            display: inline-block;
+            margin: 0 15px;
+
+            a {
+                display: inline-block;
+                color: white;
+                text-decoration: none;
+                padding: 10px;
+                transition: 0.4s;
+                border-radius: 5px;
+                @include setFontSize(large);
+            }
+
+            a:hover {
+                background: blue;
+                color: white;
+            }
+
+        }
+    }
+}
+
+main {
+    background: $main-bgcolor;
+}
+
+// footer {
+//     background: $footer-bgcolor;
+// }

@@ -1,0 +1,118 @@
+/* code reset */
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box; }
+
+.red-text {
+  color: red; }
+
+.green-text {
+  color: green; }
+
+.blue-text {
+  color: blue; }
+
+/* Instead of which (Sass text) */
+#about p {
+  font-size: 24px;
+  text-align: left;
+  margin: 10px 0; }
+
+#education p {
+  font-size: 16px;
+  text-align: justify;
+  margin: 10px 0; }
+
+.c-btn, .custom-button, .learn-more {
+  border: none;
+  padding: 15px 30px;
+  text-align: center;
+  font-size: 16px;
+  font-weight: 600;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: 0.4s; }
+
+.custom-button {
+  background-color: #b4dafb; }
+  .custom-button:hover {
+    background-color: blue;
+    color: white; }
+
+.learn-more {
+  background-color: #8cfbd6;
+  text-decoration: none; }
+  .learn-more:hover {
+    background-color: blue;
+    color: white; }
+
+[class*="c-col-"] {
+  float: left; }
+
+.c-col-1 {
+  width: 8.33333%; }
+
+.c-col-2 {
+  width: 16.66667%; }
+
+.c-col-3 {
+  width: 25%; }
+
+.c-col-4 {
+  width: 33.33333%; }
+
+.c-col-5 {
+  width: 41.66667%; }
+
+.c-col-6 {
+  width: 50%; }
+
+.c-col-7 {
+  width: 58.33333%; }
+
+.c-col-8 {
+  width: 66.66667%; }
+
+.c-col-9 {
+  width: 75%; }
+
+.c-col-10 {
+  width: 83.33333%; }
+
+.c-col-11 {
+  width: 91.66667%; }
+
+.c-col-12 {
+  width: 100%; }
+
+/*  Instead of which (Sass text) */
+.row::after {
+  clear: both;
+  content: "";
+  display: table; }
+
+header {
+  background: #ffab73; }
+
+nav {
+  margin: 15px; }
+  nav ul {
+    list-style-type: none; }
+    nav ul li {
+      display: inline-block;
+      margin: 0 15px; }
+      nav ul li a {
+        display: inline-block;
+        color: white;
+        text-decoration: none;
+        padding: 10px;
+        transition: 0.4s;
+        border-radius: 5px;
+        font-size: 20px; }
+      nav ul li a:hover {
+        background: blue;
+        color: white; }
+
+main {
+  background: #ffd384; }
